@@ -14,4 +14,14 @@ public class Client {
     public void getAllDevices(){
         service.getAllDevices();
     }
+
+    public void visualizzaCarrello(){
+        service.visualizzaCarrello(name);
+    }
+    public void aggiungiAlCarrello(String disp){
+        service.aggiungiAlCarrello(name, disp);
+    }
+    public void cercaDispositivi(String cerca){
+        service.cercaDispositivi(cerca);
+    }
 }

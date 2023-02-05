@@ -26,4 +26,54 @@ public class Service {
 
     }
 
+    public void visualizzaCarrello(String id){
+        String newUri = uri + "/" + id;
+        HttpRequest req = HttpRequest.newBuilder().uri(URI.create(newUri)).GET().version(java.net.http.HttpClient.Version.HTTP_2).build();
+        HttpClient client = HttpClient.newBuilder().build();
+        try {
+            HttpResponse resp = client.send(req, HttpResponse.BodyHandlers.ofString());
+            System.out.println("Esito Richiesta: " + resp.statusCode());
+            System.out.println("Dati: " + resp.body());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void aggiungiAlCarrello(String id, String disp){
+        String newUri = uri + "/" + id;
+
+        HttpRequest req = HttpRequest.newBuilder().uri(URI.create(newUri)).POST(HttpRequest.BodyPublishers.ofString(disp)).version(java.net.http.HttpClient.Version.HTTP_2).build();
+
+        HttpClient client = HttpClient.newBuilder().build();
+
+        try {
+            HttpResponse resp = client.send(req, HttpResponse.BodyHandlers.ofString());
+            System.out.println("Esito Richiesta: " + resp.statusCode());
+            System.out.println("Risposta: " + resp.body());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void cercaDispositivi(String cerca){
+        String newUri = uri + "/find/" + cerca;
+        HttpRequest req = HttpRequest.newBuilder().uri(URI.create(newUri)).GET().version(java.net.http.HttpClient.Version.HTTP_2).build();
+        HttpClient client = HttpClient.newBuilder().build();
+        try {
+            HttpResponse resp = client.send(req, HttpResponse.BodyHandlers.ofString());
+            System.out.println("Esito Richiesta: " + resp.statusCode());
+            System.out.println("Dati: " + resp.body());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
