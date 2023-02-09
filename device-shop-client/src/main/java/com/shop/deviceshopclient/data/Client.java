@@ -1,27 +1,39 @@
 package com.shop.deviceshopclient.data;
 
+import com.shop.deviceshopclient.api.HttpSender;
 import com.shop.deviceshopclient.api.Service;
+import com.shop.deviceshopclient.breaker.CircuitBreaker;
 
 public class Client {
     private final String name;
-    private final Service service;
+    private final CircuitBreaker c;
 
-    public Client(String name, Service http){
+    //private final Service s
+
+    public Client(String name, CircuitBreaker c){
         this.name = name;
-        this.service = http;
+        this.c = c;
     }
 
     public void getAllDevices(){
-        service.getAllDevices();
+       int statusCode = c.getAllDevices();
+       if (statusCode != -1)
+           System.out.println("Status code: " + statusCode);
     }
 
     public void visualizzaCarrello(){
-        service.visualizzaCarrello(name);
+        int statusCode = c.visualizzaCarrello(name);
+        if (statusCode != -1)
+            System.out.println("Status code: " + statusCode);
     }
     public void aggiungiAlCarrello(String disp){
-        service.aggiungiAlCarrello(name, disp);
+        int statusCode = c.aggiungiAlCarrello(name, disp);
+        if (statusCode != -1)
+            System.out.println("Status code: " + statusCode);
     }
     public void cercaDispositivi(String cerca){
-        service.cercaDispositivi(cerca);
+        int statusCode = c.cercaDispositivi(cerca);
+        if (statusCode != -1)
+            System.out.println("Status code: " + statusCode);
     }
 }

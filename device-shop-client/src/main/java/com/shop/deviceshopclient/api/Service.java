@@ -7,6 +7,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class Service {
+
+    public Service(){}
+
     private String uri = "http://localhost:8080/device";
 
     public void getAllDevices(){

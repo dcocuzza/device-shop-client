@@ -1,6 +1,7 @@
 package com.shop.deviceshopclient;
 
 import com.shop.deviceshopclient.api.Service;
+import com.shop.deviceshopclient.breaker.CircuitBreaker;
 import com.shop.deviceshopclient.data.Client;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 @SpringBootApplication
 public class DeviceShopClientApplication {
 	private static final Scanner scanner = new Scanner(System.in);
-	private static final Service service = new Service();
+	private static final CircuitBreaker c = new CircuitBreaker();
 
 	public static void main(String[] args) {
 		SpringApplication.run(DeviceShopClientApplication.class, args);
@@ -22,7 +23,7 @@ public class DeviceShopClientApplication {
 		nome = scanner.next();
 		System.out.println(nome.charAt(nome.length()-1));
 
-		Client client = new Client(nome, service);
+		Client client = new Client(nome, c);
 
 		char c;
 
@@ -54,9 +55,6 @@ public class DeviceShopClientApplication {
 
 
 		}while (c != 'z');
-
-
-
 
 
 	}
