@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Scanner;
 
+import static java.lang.System.exit;
+
 @SpringBootApplication
 public class DeviceShopClientApplication {
 	private static final Scanner scanner = new Scanner(System.in);
@@ -28,7 +30,7 @@ public class DeviceShopClientApplication {
 		char c;
 
 		do{
-			System.out.println("Visualizza carrello: [a] \nVisualizza tutti i dispositivi: [b] \nAggiungi al carrello un dispositivo: [c] \nCerca [d]");
+			System.out.println("Visualizza carrello: [a] \nVisualizza tutti i dispositivi: [b] \nAggiungi al carrello un dispositivo: [c] \nCerca [d] \nTermina [z]");
 			c = scanner.next().charAt(0);
 
 			switch (c){
@@ -56,6 +58,7 @@ public class DeviceShopClientApplication {
 
 		}while (c != 'z');
 
+		exit(1);
 
 	}
 
