@@ -1,6 +1,6 @@
 package com.shop.deviceshopclient;
 
-import com.shop.deviceshopclient.api.Service;
+
 import com.shop.deviceshopclient.breaker.CircuitBreaker;
 import com.shop.deviceshopclient.data.Client;
 import org.springframework.boot.SpringApplication;

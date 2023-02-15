@@ -1,7 +1,7 @@
 package com.shop.deviceshopclient.data;
 
 import com.shop.deviceshopclient.api.HttpSender;
-import com.shop.deviceshopclient.api.Service;
+
 import com.shop.deviceshopclient.breaker.CircuitBreaker;
 
 public class Client {

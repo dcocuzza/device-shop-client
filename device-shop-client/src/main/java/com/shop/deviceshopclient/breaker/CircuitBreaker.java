@@ -1,7 +1,7 @@
 package com.shop.deviceshopclient.breaker;
 
 import com.shop.deviceshopclient.api.HttpSender;
-import com.shop.deviceshopclient.api.Service;
+
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
